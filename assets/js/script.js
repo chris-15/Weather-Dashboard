@@ -1,5 +1,7 @@
+// api key for open weather 
 var apiKey = "0d0839b84e0e9b172f262c1df9ccb1a9"
 
+// function to fetch city information
 var getCity= function(cityName){
     var cityApiUrl = "https://api.openweathermap.org/data/2.5/weather?q="+ cityName +"&appid=" + apiKey;
 
