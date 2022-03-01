@@ -64,6 +64,7 @@ var getCity = function (cityName) {
                         // current city weather info- temp, wind, humidity, uv 
                         //temp
                         var tempEl = document.createElement("p");
+                        
                         var currentTempInfo = data.current.temp;
                         tempEl.innerHTML= "Temp: " + currentTempInfo + "&#8457";
 
@@ -80,14 +81,17 @@ var getCity = function (cityName) {
                         //uv
                         var uvEl = document.createElement("p");
                         var currentUvInfo = data.current.uvi;
-                        uvEl.innerHTML = "UV Index: " + currentUvInfo;
+                        var spanUvEl= document.createElement("span")
+                        spanUvEl.textContent=currentUvInfo; 
+                        uvEl.innerHTML = "UV Index: ";
+                        uvEl.appendChild(spanUvEl);
                         // background for uv index depending on condition strength
                         if (currentUvInfo <= 2) {
-                                           
+                            spanUvEl.className = ("p-2 bg-success")
                         } else if (currentUvInfo >= 3 && currentUvInfo <=5) {
-                            
+                            spanUvEl.className = ("p-2 bg-warning")
                         } else {
-                            
+                            spanUvEl.className = ("p-2 bg-danger")                            
                         }
 
 
