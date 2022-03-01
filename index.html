@@ -23,10 +23,10 @@
             <div class="col-3">
                 <!--div for form-->
                 <div id="search-form" class="border-bottom border-dark border-3 pb-3">
-                    <form>
+                    <form id="search-form">
                         <label class="form-label fw-bold fs-2" for="search">Search for a City:</label>
                         <input type="text" id="search" name="search" class="form-control mb-2" />
-                        <button type="submit" class="btn-lg btn-primary  w-100">Search</button>
+                        <button type="submit" id="search-btn" class="btn-lg btn-primary  w-100">Search</button>
                     </form>
                 </div>
 
@@ -40,12 +40,14 @@
             <!-- column for current weather and underneath 5day forecast-->
             <div class="col-9">
                 <!--div for current weather-->
-                <div>
-
+                <div id="current-weather" class="border border-dark">
+                    <div id="current-weather-cityname" class="d-flex justify-content-start align-items-center"></div>
+                    <div id="current-weather-info"></div>
                 </div>
 
+
                 <!--div for 5day forecast-->
-                <div>
+                <div id="five-day-weather">
 
                 </div>
 
@@ -57,7 +59,8 @@
         </div>
 
     </main>
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
