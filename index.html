@@ -16,7 +16,7 @@
         <h1 class="text-white">Weather Dashboard</h1>
     </header>
 
-    <main class="container">
+    <main class="container-fluid">
         <!-- container for 2 columns-->
         <div class="row">
             <!--column left for search and past history-->
@@ -40,9 +40,17 @@
             <!-- column for current weather and underneath 5day forecast-->
             <div class="col-9">
                 <!--div for current weather-->
-                <div id="current-weather" class="border border-dark">
-                    <div id="current-weather-cityname" class="d-flex justify-content-start align-items-center"></div>
-                    <div id="current-weather-info"></div>
+                <div id="current-weather" class="border border-dark mt-2">
+                    <div id="current-weather-cityname" class="d-flex justify-content-start align-items-center">
+                        <h1 id="current-city-title" class="fw-bold fs-2"> </h1>
+                    </div>
+                    <div id="current-weather-info">
+                        <p id="current-temp">Temp: <span id="temp-span"></span></p>
+                        <p id="current-wind">Wind: <span id="wind-span"></span></p>
+                        <p id="current-humidity">Humidity: <span id="humidity-span"></span></p>
+                        <p id="current-uv">UV Index: <span id="uv-span"></span></p>
+
+                    </div>
                 </div>
 
 
