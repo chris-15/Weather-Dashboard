@@ -107,7 +107,7 @@ var getCity = function (cityName) {
             // background for uv index depending on condition strength
             if (currentUvInfo <= 2) {
               uvSpanEl.className = "p-2 bg-success rounded";
-            } else if (currentUvInfo >= 3 && currentUvInfo <= 5) {
+            } else if (currentUvInfo > 2 && currentUvInfo <= 5) {
               uvSpanEl.className = "p-2 bg-warning rounded";
             } else {
               uvSpanEl.className = "p-2 bg-danger rounded";
