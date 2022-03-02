@@ -17,7 +17,6 @@ var formSubmitHandler = function (event) {
     if(citySearch) {
         getCity(citySearch)
         inputCityEl.value = "";
-        cardDivEl.remove();
     } else{
         alert("Please enter a city name")
     }
@@ -51,6 +50,9 @@ var getCity = function (cityName) {
                      .then(function(data) {
                          console.log(data);
                          //console.log(nameOfInputCity);
+
+                         // clears dynamically created elements in forecast when new search is conducted
+                         forecastCardContainerEl.innerHTML= "";
 
                          // get current weather info and add to DOM
                         var currentDate = moment.unix(data.current.dt).format("MM/DD/YYYY");
