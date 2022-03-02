@@ -94,8 +94,8 @@ var getCity = function (cityName) {
                             uvSpanEl.className = ("p-2 bg-danger rounded")                            
                         };
 
+                        // for loop for 5 day forecast
                         for (i=1; i<6; i++) {
-                            //console.log(data.daily[i])
                             //create all items for weather card
                             var cardDivEl = document.createElement("div");
                             cardDivEl.className = ("card text-white bg-primary")
