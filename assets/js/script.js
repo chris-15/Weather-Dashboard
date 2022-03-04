@@ -6,9 +6,9 @@ var searchFormEl = document.querySelector("#search-form");
 var currentWeatherEl = document.querySelector("#current-weather");
 var forecastTitleDivEl= document.querySelector("#forecast-title");
 var forecastCardContainerEl = document.querySelector("#card-container");
+var searchHistoryContainerEl = document.querySelector("#search-history");
 
-var historyCityList = localStorage.getItem("historyCityList")?JSON.parse(localStorage.getItem("historyCityList")):[];
-
+var historyCityList= localStorage.getItem("historyCityList")?JSON.parse(localStorage.getItem("historyCityList")):[];
 
 // function to user input from search form
 // also save to local storage 
@@ -16,16 +16,10 @@ var formSubmitHandler = function (event) {
   event.preventDefault();
   var citySearch = inputCityEl.value.trim();
   
-  var userSearch = {
-    citySearch
-  }
 
-  historyCityList.push(userSearch);
+  historyCityList.push(citySearch);
   
-  localStorage.setItem("userSearch", JSON.stringify(userSearch));
-
-
-
+  localStorage.setItem("userSearchTerm", JSON.stringify(historyCityList));
 
   if (citySearch) {
     getCity(citySearch);
@@ -35,6 +29,13 @@ var formSubmitHandler = function (event) {
   }
   console.log(event);
 };
+
+// function to create previous searches as buttons
+// WORK-IN PROGRESS
+var searchHistoryButtons = function() {
+  for (i=0; i<historyCityList.length; i++)
+  console.log(historyCityList[i]);
+}
 
 // function to fetch city information
 var getCity = function (cityName) {
