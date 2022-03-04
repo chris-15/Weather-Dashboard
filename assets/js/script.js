@@ -7,10 +7,25 @@ var currentWeatherEl = document.querySelector("#current-weather");
 var forecastTitleDivEl= document.querySelector("#forecast-title");
 var forecastCardContainerEl = document.querySelector("#card-container");
 
+var historyCityList = localStorage.getItem("historyCityList")?JSON.parse(localStorage.getItem("historyCityList")):[];
+
+
 // function to user input from search form
+// also save to local storage 
 var formSubmitHandler = function (event) {
   event.preventDefault();
   var citySearch = inputCityEl.value.trim();
+  
+  var userSearch = {
+    citySearch
+  }
+
+  historyCityList.push(userSearch);
+  
+  localStorage.setItem("userSearch", JSON.stringify(userSearch));
+
+
+
 
   if (citySearch) {
     getCity(citySearch);
@@ -31,7 +46,7 @@ var getCity = function (cityName) {
 
   fetch(cityApiUrl).then(function (response) {
     if (response.ok) {
-      console.log("fetch worked");
+      console.log("fetch workded");
       response.json().then(function (data) {
         console.log(data);
 
@@ -177,6 +192,12 @@ var getCity = function (cityName) {
     }
   });
 };
+
+
+// search history
+var searchHistory = function(cityName) {
+  
+}
 
 // event listener that searches for city weather data based on user input
 searchFormEl.addEventListener("submit", formSubmitHandler);
