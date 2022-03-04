@@ -10,8 +10,8 @@ var searchHistoryContainerEl = document.querySelector("#search-history");
 
 var historyCityList= localStorage.getItem("userSearchTerm")?JSON.parse(localStorage.getItem("userSearchTerm")):[ ];
 
-// function to user input from search form
-// also save to local storage 
+// function to handle user input from search form
+// also save to local storage and add button to history section
 var formSubmitHandler = function (event) {
   event.preventDefault();
   var citySearch = inputCityEl.value.trim();
@@ -32,12 +32,11 @@ var formSubmitHandler = function (event) {
 };
 
 // function to add new button to history div when search is conducted
-//work in progress
 var newSearchAddButton = function() {
   var newSearchButtonEl = document.createElement("button");
   newSearchButtonEl.setAttribute("type","click");
   newSearchButtonEl.className = "col-12 btn-lg btn-secondary mt-2"
-  newSearchButtonEl.textContent= citySearch;
+  newSearchButtonEl.textContent= inputCityEl.value.trim();
   searchHistoryContainerEl.appendChild(newSearchButtonEl);
   
 }
