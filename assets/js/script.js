@@ -8,7 +8,7 @@ var forecastTitleDivEl= document.querySelector("#forecast-title");
 var forecastCardContainerEl = document.querySelector("#card-container");
 var searchHistoryContainerEl = document.querySelector("#search-history");
 
-var historyCityList= localStorage.getItem("historyCityList")?JSON.parse(localStorage.getItem("historyCityList")):[];
+var historyCityList= localStorage.getItem("userSearchTerm")?JSON.parse(localStorage.getItem("userSearchTerm")):[ ];
 
 // function to user input from search form
 // also save to local storage 
@@ -23,6 +23,7 @@ var formSubmitHandler = function (event) {
 
   if (citySearch) {
     getCity(citySearch);
+    newSearchAddButton(citySearch);
     inputCityEl.value = "";
   } else {
     alert("Please enter a city name");
@@ -30,12 +31,30 @@ var formSubmitHandler = function (event) {
   console.log(event);
 };
 
-// function to create previous searches as buttons
-// WORK-IN PROGRESS
-var searchHistoryButtons = function() {
-  for (i=0; i<historyCityList.length; i++)
-  console.log(historyCityList[i]);
+// function to add new button to history div when search is conducted
+//work in progress
+var newSearchAddButton = function() {
+  var newSearchButtonEl = document.createElement("button");
+  newSearchButtonEl.setAttribute("type","click");
+  newSearchButtonEl.className = "col-12 btn-lg btn-secondary mt-2"
+  newSearchButtonEl.textContent= citySearch;
+  searchHistoryContainerEl.appendChild(newSearchButtonEl);
+  
 }
+
+
+//function to load local storage
+var loadSearchHistory = function() {
+  for (i=0; i<historyCityList.length; i++) {
+    var historyItemEl = document.createElement("button");
+    historyItemEl.setAttribute("type","click");
+    historyItemEl.className= "col-12 btn-lg btn-secondary mt-2"
+    searchHistoryContainerEl.appendChild(historyItemEl);
+    historyItemEl.textContent=(historyCityList[i]);
+  }
+
+}
+
 
 // function to fetch city information
 var getCity = function (cityName) {
@@ -195,10 +214,11 @@ var getCity = function (cityName) {
 };
 
 
-// search history
-var searchHistory = function(cityName) {
-  
-}
+
+
+
 
 // event listener that searches for city weather data based on user input
 searchFormEl.addEventListener("submit", formSubmitHandler);
+
+loadSearchHistory();
