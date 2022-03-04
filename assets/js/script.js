@@ -31,6 +31,15 @@ var formSubmitHandler = function (event) {
   console.log(event);
 };
 
+//function to handle history button click
+var historyButtonClickHandler = function(event) {
+  newBtn= newSearchButtonEl.textContent  
+
+  getCity(newBtn)
+}
+
+
+
 // function to add new button to history div when search is conducted
 var newSearchAddButton = function() {
   var newSearchButtonEl = document.createElement("button");
@@ -38,7 +47,6 @@ var newSearchAddButton = function() {
   newSearchButtonEl.className = "col-12 btn-lg btn-secondary mt-2"
   newSearchButtonEl.textContent= inputCityEl.value.trim();
   searchHistoryContainerEl.appendChild(newSearchButtonEl);
-  
 }
 
 
@@ -219,5 +227,7 @@ var getCity = function (cityName) {
 
 // event listener that searches for city weather data based on user input
 searchFormEl.addEventListener("submit", formSubmitHandler);
+
+searchHistoryContainerEl.addEventListener("click", historyButtonClickHandler);
 
 loadSearchHistory();
