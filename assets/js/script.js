@@ -64,7 +64,7 @@ var loadSearchHistory = function() {
   }
 }
 
-// function to fetch city information
+// function to fetch weather information and add content dynamically
 var getCity = function (cityName) {
   var cityApiUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
