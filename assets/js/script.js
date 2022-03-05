@@ -33,9 +33,9 @@ var formSubmitHandler = function (event) {
 
 //function to handle history button click
 var historyButtonClickHandler = function(event) {
-  newBtn= newSearchButtonEl.textContent  
-
-  getCity(newBtn)
+  console.log(event.target.textContent)
+  cityBtn= event.target.textContent;
+  getCity(cityBtn)
 }
 
 
