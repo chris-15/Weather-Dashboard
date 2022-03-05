@@ -8,6 +8,7 @@ var forecastTitleDivEl= document.querySelector("#forecast-title");
 var forecastCardContainerEl = document.querySelector("#card-container");
 var searchHistoryContainerEl = document.querySelector("#search-history");
 
+// holds array for searches stored in local storage
 var historyCityList= localStorage.getItem("userSearchTerm")?JSON.parse(localStorage.getItem("userSearchTerm")):[ ];
 
 // function to handle user input from search form
@@ -15,9 +16,12 @@ var historyCityList= localStorage.getItem("userSearchTerm")?JSON.parse(localStor
 var formSubmitHandler = function (event) {
   event.preventDefault();
   var citySearch = inputCityEl.value.trim();
-  
 
-  historyCityList.push(citySearch);
+  // only pushes to array if it has a value, blanks not added to array
+  if (citySearch){
+    historyCityList.push(citySearch)
+  }
+  
   
   localStorage.setItem("userSearchTerm", JSON.stringify(historyCityList));
 
@@ -28,7 +32,7 @@ var formSubmitHandler = function (event) {
   } else {
     alert("Please enter a city name");
   }
-  console.log(event);
+  //console.log(event);
 };
 
 //function to handle history button click
@@ -49,7 +53,6 @@ var newSearchAddButton = function() {
   searchHistoryContainerEl.appendChild(newSearchButtonEl);
 }
 
-
 //function to load local storage
 var loadSearchHistory = function() {
   for (i=0; i<historyCityList.length; i++) {
@@ -59,9 +62,7 @@ var loadSearchHistory = function() {
     searchHistoryContainerEl.appendChild(historyItemEl);
     historyItemEl.textContent=(historyCityList[i]);
   }
-
 }
-
 
 // function to fetch city information
 var getCity = function (cityName) {
@@ -103,6 +104,7 @@ var getCity = function (cityName) {
             // add border for current weather
             currentWeatherEl.className= "border border-dark mt-2"
 
+            //use moment to get date formatted 
             var currentDate = moment.unix(data.current.dt).format("MM/DD/YYYY");
             var currentIcon = data.current.weather[0].icon;
             var iconImgEl = document.createElement("img");
@@ -216,18 +218,16 @@ var getCity = function (cityName) {
       });
     } else {
       console.log("fetch didnt work");
+      alert("Please enter a valid city!");
     }
-  });
+  })
 };
-
-
-
-
 
 
 // event listener that searches for city weather data based on user input
 searchFormEl.addEventListener("submit", formSubmitHandler);
 
+// event listenr for buttons on search history 
 searchHistoryContainerEl.addEventListener("click", historyButtonClickHandler);
 
 loadSearchHistory();
