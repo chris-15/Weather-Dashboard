@@ -167,7 +167,7 @@ var getCity = function (cityName) {
             for (i = 1; i < 6; i++) {
               //create all items for weather card
               var cardDivEl = document.createElement("div");
-              cardDivEl.className = "card text-white bg-primary";
+              cardDivEl.className = "card text-white bg-primary mb-2";
               cardDivEl.setAttribute = ("style", "width: 18rem");
               forecastCardContainerEl.appendChild(cardDivEl);
 

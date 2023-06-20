@@ -7,6 +7,7 @@ The purpose of this week's challenge was to create a weather dashboard using the
 Below are the challenge requirements:
 
 ![challenge requirments](/assets/images/challengeRequirements.png)
+<img src="./assets/images/challengeRequirements.png" />
 
 Below is a preview of the deployed application:
 
