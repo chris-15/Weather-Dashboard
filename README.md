@@ -21,7 +21,7 @@ There is no installation needed to use the application.
 
 ## Usage 
 
-Deployed Application found here: [Weather Dashboard](https://chris-15.github.io/Weather-Dashboard-Weekly-Challenge6/)
+Deployed Application found here: [Weather Dashboard](https://chris-15.github.io/Weather-Dashboard/)
 
 
 ## Credits
